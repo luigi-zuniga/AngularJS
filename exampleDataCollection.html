@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="accion">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Collection</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+    <script src="angular.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="controllerOne">
+                <h5>Nombres</h5>
+                <ul>
+                    <li ng-repeat="nombreIndividual in nombreSimple">
+                        {{ nombreIndividual }}
+                    </li>
+                </ul>
+                <h5>Heroes de accion</h5>
+                <ul>
+                    <li ng-repeat="heroe in heroes">
+                        {{ heroe.nombre }} {{ heroe.apellido }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        var myApp = angular.module('accion', [])
+        myApp.controller('controllerOne', ['$scope', function($scope) {
+            $scope.nombreSimple = ["Alois", "Gardenzio", "Carlos"];
+            
+            $scope.heroes = 
+            [
+                {  nombre:"Arnold", apellido: "Schwarzenegger"},
+                {  nombre:"Syvester" , apellido:"Stalone" },
+                {  nombre:"Chuck", apellido:"Norris" }
+            ]
+        }])
+        
+    </script>
+</body>
+
+</html>

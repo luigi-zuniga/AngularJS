@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Step One : Define name application -->
+<html ng-app='mangoMarket'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Controller in AngularJS</title>
+    <link rel="stylesheet" href="bootswatch.min.css" />
+    <script src="angular.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Controller-->
+            <!--Directive ng-controller for procces data of the controller-->
+            <div ng-controller="controllerOne">
+                <!--All This container is a controller-->
+                <h1>Mango Market</h1>
+                <h2>{{ 2.15 | currency }} c/u</h2>
+                <label>Quility of mangos : </label>
+                <!-- Data model -->
+                <input type="text" ng-model="$quality">
+                <br/>
+                <!-- Variable for scope procces-->
+                Total due : {{ $quality * $price | currency }}
+            </div>
+            <!-- / End ControllerOne -->
+
+            <div ng-controller="controllerTwo">
+                <!--All This container is a controller-->
+                <h1>Apple Market</h1>
+                <h2>{{ 699.99 | currency }} c/u</h2>
+                <label>Quility of Iphone : </label>
+                <!-- Data model -->
+                <input type="text" ng-model="$quality">
+                <br/>
+                <!-- Variable for scope procces-->
+                Total due : {{ $quality * $price | currency }}
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        /*
+                myApp = (declare the modele for this application) + code angular
+                Code angular = angular.module <-- module define ('1-nameApp',[Vector Empty])
+            */
+        var myApp = angular.module('mangoMarket', [])
+        /*Declare controller
+            1 - Instance of our module  - myApp
+            2 - We create a controller within our application - myApp.controller
+            3 - myApp.controller(NameController, [ Include Array ])
+            4 - Array 
+            4.1 Special elemento of angular Object '$scope'<-- Accesses controller items(elements)
+            4.2 Function($scope){ 'controller code'  } 
+                this function processes what is received by the $scope object and then processes and        
+                modifies
+            */
+        myApp.controller('controllerOne', ['$scope', function($scope) {
+            $scope.$quality = 1
+            $scope.$price = 2.15
+        }])
+        //Other controller in thi app
+        myApp.controller('controllerTwo',['$scope',function($scope){
+            $scope.$quality = 1
+            $scope.$price = 699.99
+        }])
+        
+        
+        
+    </script>
+</body>
+
+</html>

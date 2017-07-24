@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Create method into controller</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+   <!--Controller Container-->
+    <div class="container">
+        <div class="row">
+            <div ng-controller="circumference">
+                <label>Diameter</label>
+                <!--angular model-->
+                <input type="text" ng-model="diameter">
+                <br/>
+                <button ng-click="calculateCircumference()">
+                    Calculate Circumference
+                </button>
+                {{ circumference }}
+            </div>
+        </div>
+    </div>
+    <!--/End Container-->
+    <script>
+        var myApp = angular.module('myApp',[])
+        
+        myApp.controller('circumference' , ['$scope', function($scope){
+            //Global Variable
+            var pi = 3.14
+            //This is Method calculateCircumference
+            $scope.calculateCircumference = function()
+            {
+                $scope.circumference = $scope.diameter * pi
+            }
+        }])
+    </script>
+</body>
+</html>

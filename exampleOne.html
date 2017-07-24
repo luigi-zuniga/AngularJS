@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <!-- Directiva ng-app : Interpret all document when angular APP-->
+    <meta charset="UTF-8">
+    <title>Example`s with Angular</title>
+    <script src="angular.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">Angular 4</a>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <!-- First Row -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <!-- Interpolacion-->
+                        <h5>{{ 'Expresion' }} AngularJS</h5>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ 'Expresiones Two' }}</p>
+                        {{ 'Expresiones' }}</br>
+                        {{ (24 + 45) * 12 + 123 }}</br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h5>{{ 'Filter '}} Use</h5>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Nintendo DS {{ 51.99| currency }}</li>
+                            <li>PlayStation Portable {{ 67.98 | currency:'€'}}</li>
+                            <li>Gameboy Advance {{ 27 | currency }} Edicion <strong>{{ 'JaPonesA' | uppercase }}</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/. row end-->
+
+       <!-- Data Binding -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h5>{{ 'Data Binding' }} character for model`s in Angular</h5>
+                    </div>
+                    <div class="panel-body">
+                       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <label class="label label-primary">Name :</label>
+                        <input type="text" class="form-control" ng-model="name">
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <label class="label label-danger">{{ 'Data Binding' }}</label><br/>
+                            <p class="label label-success">{{ name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Data Binding-->
+    </div>
+    <!--/.container-->
+    
+</body>
+</html>
