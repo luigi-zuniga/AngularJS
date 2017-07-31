@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appCss">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS and AngularJS</title>
+    <style type="text/css">
+        div {
+            width: 600px;
+            margin: 10px auto;
+            text-align: center;
+        }
+        
+        .container {
+            border: solid 2px;
+        }
+        
+        .angular {
+            background: red;
+            font-size: 40px;
+            padding: 0 40px;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div ng-controller="controllerOne">
+        <div class="container">
+            <p ng-style="myStyle">Hi, this is a controller and this is my styles with <span ng-class="specialClass"> AngularJS </span>.</p>
+        </div>
+        <button ng-click="changeProperty()">Change property</button>
+        <button ng-click="changeClass()">Change Class</button>
+        <button ng-click="resetClass()">Reset All</button>
+    </div>
+    </div>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('appCss', [])
+
+        myApp.controller('controllerOne', ['$scope', function($scope) {
+            $scope.changeProperty = function() {
+                $scope.myStyle = {
+                    "background": "blue",
+                    "color": "#ffeb00"
+                }
+            }
+
+            $scope.changeClass = function() {
+                $scope.specialClass = "angular";
+            }
+
+            $scope.resetClass = function() {
+                $scope.myStyle = "";
+                $scope.specialClass = "";
+            }
+
+        }])
+
+    </script>
+</body>
+
+</html>

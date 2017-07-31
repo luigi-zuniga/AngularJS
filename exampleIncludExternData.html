@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="modularApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular | Include extern data</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div ng-include src=" 'template/navegation.html' "></div>
+        <div ng-include src=" 'template/header.html' "></div>
+        <div ng-include src=" 'template/thumbnail.html' "></div>
+    </div>
+
+    <!--Include librery extern angular-route-->
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('modularApp', [])
+    </script>
+</body>
+</html>

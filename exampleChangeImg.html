@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="changeImage">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular | change image</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="controllerImg">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="thumbnail">
+                        <img ng-src="{{ actImg }}">
+                        <div class="caption">
+                            <h3>Charmander Ev</h3>
+                            <p>
+                                <strong>Charmander </strong>es un Pokémon de tipo fuego introducido en la primera generación. Es uno de los Pokémon iniciales que pueden elegir los entrenadores que empiezan su aventura en la región Kanto, junto a Bulbasaur y Squirtle, excepto en Pokémon Amarillo.
+                            </p>
+                            <p>
+                                <button class="btn btn-default" ng-click="viewImg('img/Charmander.png')">Ev -1</button>
+                                <button class="btn btn-warning" ng-click="viewImg('img/Charmeleo.png')">Ev - 2</button>
+                                <button class="btn btn-danger" ng-click="viewImg('img/Charizard.png')">Ev - 3</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('changeImage', [])
+
+        myApp.controller('controllerImg', ['$scope', function($scope) {
+
+            $scope.actImg = 'img/Charmander.png'
+
+            $scope.viewImg = function(_image) {
+                $scope.actImg = _image
+            }
+        }])
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="showHidden">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular | Show and hidden element</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+    <style type="text/css">
+        .alert
+        {
+            width: 400px;
+            height:200px;
+            line-height: 200px;
+            text-align: center;
+            font-family: monospace;
+            color:·#fff;
+            background: #000;
+            font-size: 22px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div ng-controller="controllerOne">
+        <button ng-click="viewMessage()">Secret</button>
+        <button ng-click="hiddenMessage()">Hidden</button>
+         <div class="alert" ng-show="visibilityMessage">
+             This is a secret message.
+        </div>
+    </div>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('showHidden',[])
+        
+        myApp.controller('controllerOne',['$scope', function($scope){
+            $scope.visibilityMessage = false
+            
+            $scope.viewMessage = function(){
+                $scope.visibilityMessage = true
+            }
+            
+            $scope.hiddenMessage = function(){
+                $scope.visibilityMessage = false
+            }
+        }])
+    </script>
+</body>
+</html>

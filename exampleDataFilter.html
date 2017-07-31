@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="appAgenda" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular - Data Filter</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div ng-controller="controllerOne">
+                <h3>Agenda</h3>
+                <label for="">Search</label>
+                <input type="search" ng-model="searchAgenda" >
+                <p ng-repeat="agendaList in agenda | filter:searchAgenda">
+                    {{ agendaList.name }} : {{ agendaList.phone }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var myApp = angular.module("appAgenda", [])
+
+        myApp.controller('controllerOne', ['$scope', function($scope) {
+
+            $scope.agenda =
+            [{
+                name: 'Lincy',
+                phone: '01-2250-1075'
+            }, {
+                name: 'Bratt',
+                phone: '02-3360-2086'
+            }, {
+                name: 'Scott',
+                phone: '03-2250-3097'
+            }, {
+                name: 'Petter',
+                phone: '04-2360-4015'
+            }, {
+                name: 'Lincy',
+                phone: '05-3412-1375'
+            }, {
+                name: 'Margaret',
+                phone: '06-2151-5671'
+            }, {
+                name: 'Pierrot',
+                phone: '07-3250-4572'
+            }, {
+                name: 'Marea',
+                phone: '08-3251-1292'
+            }, {
+                name: 'Neerea',
+                phone: '09-3451-1115'
+            }, {
+                name: 'Triada',
+                phone: '10-4350-6676'
+            }, {
+                name: 'Job',
+                phone: '11-2243-9966'
+            }, {
+                name: 'Dogy',
+                phone: '12-2256-9090'
+            }]
+
+        }])
+
+    </script>
+</body>
+
+</html>

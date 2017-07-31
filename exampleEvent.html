@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="action">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular - Event Administrator</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+           <div>
+            <!-- Declare Controller -->
+            <div ng-controller="controllerOne">
+                <!--click directive-->
+                <button type="button" class="btn btn-primary" ng-click="simpleClick()">
+                    Click
+                </button>
+                
+                <!--dblclick directive-->
+                <button type="button" class="btn btn-warning" ng-dblclick="doubleClick()">
+                    Double Click
+                </button>
+                
+                <!--ng-mouseleave(onFocus) ng-mouseenter(Focus) / Directives -->
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="img/luigi.jpg" class="img-responsive" alt="Luigi" ng-mouseleave="mouseOnFocus()" ng-mouseenter="mouseFocus()">
+                </div>
+
+
+                <!-- Message event -->
+                <h2>{{ event }}</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('action',[])
+        
+        myApp.controller('controllerOne',['$scope', function($scope){
+            $scope.simpleClick = function(){
+                $scope.event = "One Click"
+            }
+            
+            //Asign other value to event 
+            $scope.doubleClick = function(){
+                $scope.event = "Double Click"
+            }
+            
+            //
+            $scope.mouseOnFocus = function(){
+                $scope.event = "Mouse on Focus"
+            }
+        
+            $scope.mouseFocus = function(){
+                $scope.event = "Mouse Focus"
+            }
+        }])
+    </script>
+</body>
+</html>
