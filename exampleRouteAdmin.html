@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zooApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular | Admin router</title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+</head>
+<body>
+    <div ng-include src=" 'template/navegation.html' "></div>
+    <div ng-include src=" 'template/header.html' "></div>
+
+    <!--Directiva ng-view  carga los elementos de las dependencias de ngRoute-->
+    <div ng-view></div>
+
+    <!-- Include external file angular-route-->
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+
+    <script type="text/javascript">
+        /*Inyección de dependencia ngRoute
+                                           El segundo paso sería inyectar la dependencia con ngRoute en el módulo general de nuestra aplicación.
+                                           Esto lo hacemos en la llamada al método module() con el que iniciamos cualquier programa AngularJS, indicando el nombre de las dependencias a inyectar en un array.
+                                        */
+        var myApp = angular.module('zooApp', ['ngRoute'])
+        //Instancia de la app
+        myApp.config(['$routeProvider', function($routeProvider) {
+            //$routeProvider servicio que modifica la ruta del documento
+            $routeProvider.when('/seccion1', {
+                /*Definicion de template que se vera en ngview*/
+                templateUrl: 'template/seccionOne.html',
+            }).when('/seccion2', {
+                templateUrl: 'template/seccionTwo.html',
+            }).otherwise({
+                redirectTo: '/',
+                templateUrl: 'template/thumbnail.html',
+            });
+        }]);
+
+    </script>
+</body>
+
+</html>

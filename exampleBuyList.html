@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="buyList">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular | List </title>
+    <link rel="stylesheet" href="bootswatch.min.css">
+</head>
+
+<body>
+
+
+    <div ng-controller="controllerList">
+        <div ng-include src="'template/navegation.html'"></div>
+        <div ng-include src="'template/header.html'"></div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="exampleInputAmount" placeholder="New Task" ng-model="addTask">
+                    <span class="input-group-btn">
+		<button type="button" class="btn btn-primary" ng-click="sendTask()">Add</button>
+	</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="task in taskList">{{ task }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div ng-view></div>
+
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module('buyList', ['ngRoute'])
+
+        myApp.controller('controllerList', ['$scope', function($scope) {
+
+            $scope.taskList = []
+
+            $scope.sendTask = function() {
+                $scope.taskList.push($scope.addTask),
+                    $scope.addTask = ""
+            }
+
+        }])
+
+
+        myApp.config(['$routeProvider', function($routeProvider) {
+            //$routeProvider servicio que modifica la ruta del documento
+            $routeProvider.when('/seccion1', {
+                /*Definicion de template que se vera en ngview*/
+                templateUrl: 'template/seccionOne.html',
+            }).when('/seccion2', {
+                templateUrl: 'template/seccionTwo.html',
+            }).otherwise({
+                redirectTo: '/',
+                templateUrl: 'template/thumbnail.html',
+            });
+        }]);
+
+    </script>
+
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+</body>
+
+</html>
